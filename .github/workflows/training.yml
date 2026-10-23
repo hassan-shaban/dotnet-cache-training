@@ -16,6 +16,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Show branch name
+        run: echo "Branch name: ${{ github.ref_name }}"
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
