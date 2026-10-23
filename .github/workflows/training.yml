@@ -42,3 +42,17 @@ jobs:
 
       - name: Run project
         run: dotnet run --no-build --configuration Release
+    
+
+  verify-artifact:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build files
+        uses: actions/download-artifact@v4
+        with:
+          name: dotnet-build
+          path: download-build
+
+      - name: List downloaded file
+        run: ls -l download-build
