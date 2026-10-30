@@ -1,0 +1,20 @@
+
+name: Conditional Deployment
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show Branch
+        run: echo "Current branch is ${{ github.ref_name }}"
+
+      - name: Deploy Application
+        if: success() && github.ref == 'refs/heads/main'
+        run: echo "Deploying application to Production"
