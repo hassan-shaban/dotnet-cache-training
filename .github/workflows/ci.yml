@@ -16,5 +16,5 @@ jobs:
         run: echo "Current branch is ${{ github.ref_name }}"
 
       - name: Deploy Application
-        if: success() && github.ref == 'refs/heads/main'
+        if: success() && github.ref == 'refs/heads/develop'
         run: echo "Deploying application to Production"
