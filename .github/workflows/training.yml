@@ -65,4 +65,11 @@ jobs:
       - name: Run downloaded application
         run: dotnet download-build/DotNetCacheTraining.dll
 
+
+  deploy:
+    needs: verify-artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy application
+        run: echo "Deploying application..."
       
