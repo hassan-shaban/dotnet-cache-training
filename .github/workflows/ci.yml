@@ -2,7 +2,7 @@
 name: Matrix Control Training
 
 on:
-  workflow_dispatch:
+  push:
 
 jobs:
   test:
