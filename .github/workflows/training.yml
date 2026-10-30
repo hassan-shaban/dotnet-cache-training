@@ -69,7 +69,8 @@ jobs:
   deploy:
     needs: verify-artifact
     runs-on: ubuntu-latest
+    if: sucess() && github.ref == 'refs/heads/main'
     steps:
-      - name: Deploy application
-        run: echo "Deploying application..."
+       - name: deploy Applicatoin 
+         run: echo "Deploying application to Production"
       
