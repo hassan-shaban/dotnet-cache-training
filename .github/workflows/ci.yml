@@ -1,20 +1,22 @@
 
-name: Conditional Deployment
+name: Matrix Control Training
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Show Branch
-        run: echo "Current branch is ${{ github.ref_name }}"
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        version: [1, 2, 3, 4, 5]
 
-      - name: Deploy Application
-        if: success() && github.ref == 'refs/heads/develop'
-        run: echo "Deploying application to Production"
+    steps:
+      - name: Show Job Number
+        run: echo "Running Matrix Job ${{ matrix.version }}"
+
+      - name: Simulate Test
+        run: sleep 10
