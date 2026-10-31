@@ -2,11 +2,14 @@ name: Reusable .NET Build1
 
 on:
   workflow_call:
-   inputs:
+    inputs:
       environment:
         required: false
         type: string
         default: Development
+    secrets:
+      SERVER_PASSWORD:
+        required: true
 
 permissions:
   contents: read
