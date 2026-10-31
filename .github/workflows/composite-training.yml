@@ -1,4 +1,5 @@
-name: Composite Action Training
+﻿name: Composite Action Training
+
 on:
   workflow_dispatch:
 
@@ -6,17 +7,12 @@ permissions:
   contents: read
 
 jobs:
-   test-compsite:
+  test-composite:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: run hello action
-<<<<<<< HEAD
+      - name: Run Hello Action
         uses: ./.github/actions/hello-action
-=======
-        uses: ./.github/actions/hello-action
->>>>>>> 2af1947 (Fix composite action file name and workflow path)
