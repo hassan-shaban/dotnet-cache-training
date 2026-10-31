@@ -1,4 +1,5 @@
-name: Reusable .NET Build1
+
+name: Reusable .NET Build
 
 on:
   workflow_call:
@@ -7,9 +8,15 @@ on:
         required: false
         type: string
         default: Development
+
     secrets:
       SERVER_PASSWORD:
         required: true
+
+    outputs:
+      build-status:
+        description: "Build status"
+        value: ${{ jobs.build.outputs.build_status }}
 
 permissions:
   contents: read
@@ -18,10 +25,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    
+    outputs:
+      build_status: ${{ steps.build_result.outputs.status }}
 
     steps:
-
       - name: Show Environment
         run: 'echo "Environment: ${{ inputs.environment }}"'
 
@@ -29,13 +36,13 @@ jobs:
         env:
           SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
         run: |
-            if [ -n "$SERVER_PASSWORD" ]; then
-             echo "Server password is configured."
-             else
+          if [ -n "$SERVER_PASSWORD" ]; then
+            echo "Server password is configured."
+          else
             echo "Server password is missing."
-             exit 1
-             fi
-        
+            exit 1
+          fi
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -52,7 +59,6 @@ jobs:
 
       - name: Run tests
         run: dotnet test --configuration Release
-
 
       - name: Set Build Status
         id: build_result
