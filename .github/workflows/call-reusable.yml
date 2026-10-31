@@ -11,3 +11,10 @@ jobs:
     uses: ./.github/workflows/reusable-build.yml
     secrets:
       SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
+
+  show-result:
+    needs: call-build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show Build Status
+        run: 'echo "Reusable Workflow Result: ${{ needs.call-build.outputs.build-status }}"'
