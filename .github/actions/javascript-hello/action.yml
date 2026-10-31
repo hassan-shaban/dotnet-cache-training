@@ -1,0 +1,6 @@
+name: JavaScript Hello Action
+description: My first JavaScript Action
+
+runs:
+  using: node20
+  main: index.js
