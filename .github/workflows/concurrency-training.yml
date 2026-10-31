@@ -1,0 +1,22 @@
+name: Concurrency Training
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: concurrency-training
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Start Build
+        run: |
+          echo "Build Started"
+          sleep 60
+          echo "Build Completed"
