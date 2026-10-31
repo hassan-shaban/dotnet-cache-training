@@ -1,0 +1,17 @@
+name: Hello action
+description: my first Composite action
+
+runs:
+  using: composite 
+  steps:
+    - name: Show Project Name
+      run: 'echo "Project: DotNetCacheTraining"'
+      shell: bash
+
+    - name: Show Branch
+      run: 'echo "Branch: $GITHUB_REF_NAME"'
+      shell: bash
+
+    - name: Show Welcome Message
+      run: 'echo "Welcome to Composite Actions!"'
+      shell: bash
