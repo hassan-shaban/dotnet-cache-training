@@ -1,0 +1,23 @@
+name: Summary Training
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build Project
+        run: echo "Building project..."
+
+      - name: Generate Summary
+        run: |
+          echo "# Build Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- Build Status: Success" >> $GITHUB_STEP_SUMMARY
+          echo "- Environment: Development" >> $GITHUB_STEP_SUMMARY
+          echo "- Project: DotNetCacheTraining" >> $GITHUB_STEP_SUMMARY
