@@ -23,3 +23,5 @@ A small .NET 8 console application for practicing GitHub Actions and NuGet cachi
 ## Important note
 
 The cache key hashes the `.csproj` file, so changing the package reference or its version changes the key. This is a simple training example; production workflows may use `packages.lock.json` with NuGet lock files for more precise dependency tracking.
+
+Testing Pull Request Security Workflow
