@@ -1,22 +1,24 @@
 
-name: Matrix Control Training
+name: Pull Request Security Training
 
 on:
-  push:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
-    strategy:
-      fail-fast: false
-      max-parallel: 2
-      matrix:
-        version: [1, 2, 3, 4, 5]
-
     steps:
-      - name: Show Job Number
-        run: echo "Running Matrix Job ${{ matrix.version }}"
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - name: Simulate Test
-        run: sleep 10
+      - name: Show PR Information
+        run: echo "Testing Pull Request"
+
+      - name: Run Tests
+        run: echo "Running Unit Tests..."
