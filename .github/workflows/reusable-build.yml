@@ -24,6 +24,17 @@ jobs:
 
       - name: Show Environment
         run: 'echo "Environment: ${{ inputs.environment }}"'
+
+      - name: Verify Server Password
+        env:
+          SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
+        run: |
+            if [ -n "$SERVER_PASSWORD" ]; then
+             echo "Server password is configured."
+             else
+            echo "Server password is missing."
+             exit 1
+             fi
         
       - name: Checkout repository
         uses: actions/checkout@v4
