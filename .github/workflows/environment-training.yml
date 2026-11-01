@@ -10,7 +10,7 @@ jobs:
 
 
     steps:
-      - name: Show Environment Variable
+      - name: Show Environment Variabl
         run: echo "Aplication name ${{ vars.APP_NAME }}"
 
 
