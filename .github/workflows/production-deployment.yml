@@ -1,0 +1,19 @@
+name: Production Deployment Training
+on:
+  workflow_dispatch
+
+jobs:
+  test-environment:
+    runs-on: ubuntu-latest
+
+    environment: Production
+
+
+    steps:
+      - name: Start Deployment
+        run: echo "Deployment to Production started!"
+
+      - name: Complete Deployment
+        run: echo "Deployment completed successfully!"
+
+  
