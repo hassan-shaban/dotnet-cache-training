@@ -6,12 +6,12 @@ jobs:
   test-environment:
     runs-on: ubuntu-latest
 
-    environment: Developmment
+    environment: Development
 
 
     steps:
       - name: Show Environment Variable
-        run: echo "Aplication name ${{vars.APP_NAME}}"
+        run: echo "Aplication name ${{ vars.APP_NAME }}"
 
-        
+
   
