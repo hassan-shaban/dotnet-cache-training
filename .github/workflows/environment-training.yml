@@ -1,0 +1,17 @@
+name: Environment Training
+on:
+  workflow_dispatch
+
+jobs:
+  test-environment:
+    runs-on: ubuntu-latest
+
+    environment: Developmment
+
+
+    steps:
+      - name: Show Environment Variable
+        run: echo "Aplication name ${{vars.APP_NAME}}"
+
+        
+  
